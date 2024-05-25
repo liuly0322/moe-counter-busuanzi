@@ -1,4 +1,5 @@
-// https://github.com/fumiama/CMoe-Counter
+// Moe-counter, MIT License
+// https://github.com/journey-ad/Moe-counter
 const counterSVGTemplate = (imageStrs: string[]) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="270" height="100" version="1.1"><title>Moe Count</title><g>${imageStrs.map((str, i) => `<image x="${45 * i}" y="0" width="45" height="100" xlink:href="${str}"></image>`).join('')}</g></svg>`;
 
 const counterImages = [
