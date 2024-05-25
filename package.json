@@ -1,0 +1,23 @@
+{
+  "name": "moe-counter-busuanzi",
+  "version": "1.0.0",
+  "description": "moe counter, but with busuanzi api for no host",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuly0322/moe-counter-busuanzi.git"
+  },
+  "keywords": [
+    "counter",
+    "busuanzi"
+  ],
+  "author": "liuly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liuly0322/moe-counter-busuanzi/issues"
+  },
+  "homepage": "https://github.com/liuly0322/moe-counter-busuanzi#readme"
+}
