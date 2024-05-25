@@ -16,19 +16,15 @@ Visit [here](https://liuly.moe) to see the live demo.
 npm install moe-counter-busuanzi
 ```
 
-After the page is loaded, call the `fetchBusuanziCounter` function to get the page view count, and then use the `generateCounterImage` function to generate the counter image SVG string.
+- `fetchBusuanziCounter`: get the page view count
+- `generateCounterImage`: generate the counter image SVG string, then you can put in some HTML element
 
 ```typescript
 import { generateCounterImage, fetchBusuanziCounter } from "moe-counter-busuanzi";
-import { onMounted } from "vue";
 
-onMounted(() => {
-  fetchBusuanziCounter().then((res) => {
-    document.getElementById("counter").innerHTML = generateCounterImage(
-      res.page_pv
-    );
-  });
-});
+const busuanziResult = await fetchBusuanziCounter();
+const counterSVGString = generateCounterImage(busuanziResult.page_pv);
+document.getElementById("counter").innerHTML = counterSVGString;
 ```
 
 TypeScript is supported. `fetchBusuanziCounter` is an async function that returns a `Promise<BusuanziResult>`.
