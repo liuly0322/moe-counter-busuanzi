@@ -12,6 +12,8 @@ Visit [here](https://liuly.moe) to see the live demo.
 
 ## Usage
 
+(not available yet)
+
 ```shell
 npm install moe-counter-busuanzi
 ```
