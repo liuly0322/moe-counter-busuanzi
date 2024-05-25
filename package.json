@@ -1,6 +1,6 @@
 {
   "name": "moe-counter-busuanzi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "moe counter, but with busuanzi api for no host",
   "main": "index.js",
   "type": "module",
