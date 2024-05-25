@@ -10,11 +10,13 @@ It's a fully static version of [Moe-Counter](https://github.com/journey-ad/Moe-c
 
 Visit [here](https://liuly.moe) to see the live demo.
 
-## Usage
+## Installation
 
 ```shell
 npm install moe-counter-busuanzi
 ```
+
+## Usage
 
 - `fetchBusuanziCounter`: get the page view count
 - `generateCounterImage`: generate the counter image SVG string, then you can put in some HTML element
@@ -27,7 +29,7 @@ const counterSVGString = generateCounterImage(busuanziResult.page_pv);
 document.getElementById("counter").innerHTML = counterSVGString;
 ```
 
-TypeScript is supported. `fetchBusuanziCounter` is an async function that returns a `Promise<BusuanziResult>`.
+TypeScript is supported.
 
 ```typescript
 type BusuanziResult = {
