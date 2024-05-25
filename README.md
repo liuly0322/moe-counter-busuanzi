@@ -19,7 +19,7 @@ npm install moe-counter-busuanzi
 After the page is loaded, call the `fetchBusuanziCounter` function to get the page view count, and then use the `generateCounterImage` function to generate the counter image SVG string.
 
 ```typescript
-import { generateCounterImage, fetchBusuanziCounter } from "./counter.ts";
+import { generateCounterImage, fetchBusuanziCounter } from "moe-counter-busuanzi";
 import { onMounted } from "vue";
 
 onMounted(() => {
