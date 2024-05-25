@@ -2,7 +2,9 @@
 
 Make your site moe moe 🪄!
 
-It's a fully static version of [Moe-Counter](https://github.com/journey-ad/Moe-counter) that uses [Busuanzi](https://busuanzi.ibruce.info/) to count page views.
+A static version of [Moe-Counter](https://github.com/journey-ad/Moe-counter), so you don't have to deploy it on a server.
+
+[Busuanzi](https://busuanzi.ibruce.info/) is used to count page views.
 
 ## Demo
 
@@ -46,4 +48,5 @@ type BusuanziResult = {
 - rule34.xxx NSFW
 - gelbooru.com NSFW
 - [Icons8](https://icons8.com/icons/set/star)
+- [Busuanzi](https://busuanzi.ibruce.info/)
 - [CMoe-Counter](https://github.com/fumiama/CMoe-Counter)
