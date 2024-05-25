@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "moe counter, but with busuanzi api for no host",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/liuly0322/moe-counter-busuanzi/issues"
   },
-  "homepage": "https://github.com/liuly0322/moe-counter-busuanzi#readme"
+  "homepage": "https://github.com/liuly0322/moe-counter-busuanzi#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }

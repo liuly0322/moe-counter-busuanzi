@@ -1,0 +1,16 @@
+{
+  "include": ["index.ts"],
+  "compilerOptions": {
+    "lib": ["es2021", "DOM"],
+    "module": "node16",
+    "target": "es2021",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist",
+    "moduleResolution": "node16",
+    "downlevelIteration": true
+  }
+}
