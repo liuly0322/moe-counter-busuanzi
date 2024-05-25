@@ -18,17 +18,24 @@ Visit [here](https://liuly.moe) to see the live demo.
 npm install moe-counter-busuanzi
 ```
 
+You can also self-host `dist/index.js` along with your site, or use a CDN.
+
 ## Usage
 
 - `fetchBusuanziCounter`: get the page view count
 - `generateCounterImage`: generate the counter image SVG string, then you can put in some HTML element
 
-```typescript
+```HTML
+<!-- We are writing es module code, so wrap it in a <script type="module"></script> tag. -->
+<script type="module">
 import { generateCounterImage, fetchBusuanziCounter } from "moe-counter-busuanzi";
+// If you want to import it from CDN:
+// import { generateCounterImage, fetchBusuanziCounter } from 'https://cdn.jsdelivr.net/npm/moe-counter-busuanzi@1.0.2/+esm'
 
 const busuanziResult = await fetchBusuanziCounter();
 const counterSVGString = generateCounterImage(busuanziResult.page_pv);
 document.getElementById("counter").innerHTML = counterSVGString;
+</script>
 ```
 
 TypeScript is supported.
