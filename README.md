@@ -30,11 +30,20 @@ You can also self-host `dist/index.js` along with your site, or use a CDN.
 <script type="module">
 import { generateCounterImage, fetchBusuanziCounter } from "moe-counter-busuanzi";
 // If you want to import it from CDN:
-// import { generateCounterImage, fetchBusuanziCounter } from 'https://cdn.jsdelivr.net/npm/moe-counter-busuanzi@1.0.2/+esm'
+// import { generateCounterImage, fetchBusuanziCounter } from 'https://cdn.jsdelivr.net/npm/moe-counter-busuanzi/+esm'
+
+// You can also import/use custom themes, which is just a string[]
+import { gelbooruImages } from "moe-counter-busuanzi/themes/gb.js";
 
 const busuanziResult = await fetchBusuanziCounter();
-const counterSVGString = generateCounterImage(busuanziResult.page_pv);
-document.getElementById("counter").innerHTML = counterSVGString;
+// simply generate the counter image
+// const counterSVGString = generateCounterImage(busuanziResult.page_pv);
+// or customize options
+const counterSVGString = generateCounterImage(busuanziResult.page_pv, {
+  length: 6, // The length of the counter, default is 6
+  theme: gelbooruImages // The theme of the counter, default is moebooruImages
+});
+document.getElementById("counter")!.innerHTML = counterSVGString;
 </script>
 ```
 
@@ -45,6 +54,11 @@ type BusuanziResult = {
   site_uv: number;
   page_pv: number;
   site_pv: number;
+};
+
+type generateCounterImageOptions = {
+  length?: number;
+  theme?: string[];
 };
 ```
 
