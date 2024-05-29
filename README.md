@@ -18,7 +18,7 @@ Visit [here](https://liuly.moe) to see the live demo.
 npm install moe-counter-busuanzi
 ```
 
-You can also self-host `dist/index.js` along with your site, or use a CDN.
+You can also self-host `dist` folder, or use a CDN.
 
 ## Usage
 
