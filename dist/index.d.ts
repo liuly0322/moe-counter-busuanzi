@@ -1,4 +1,7 @@
-export declare function generateCounterImage(count: number): string;
+export type generateCounterImageOptions = {
+    length: number;
+};
+export declare function generateCounterImage(count: number, generateOptions?: generateCounterImageOptions): string;
 export type BusuanziResult = {
     site_uv: number;
     page_pv: number;

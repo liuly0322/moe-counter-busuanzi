@@ -15,13 +15,18 @@ const counterImages = [
     "data:image/gif;base64,R0lGODlhLQBkALMAACgmOCc1i0dZm6irtBE1d2uHvAxKpTdvw+Pq7/nu3/bBo8NuUfCQcv7+/gAAAP///yH5BAEAAA8ALAAAAAAtAGQAAAT/8MlJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu7/zk/I6co0AEBmtDotIocwSUUIHASK1amRiHAEqUbrngsDIQOF6c0a94zSWXM86nlA2eg93mbEBNr6vde3lnT1CEfQVST4BvG0lQAHx0i2RTjQNgAIZ0AwKLlZYIUQEMkWADl52AnxoOA6EIoaMKW7CvrgWwSqlkBYJZt7mytAiXiESGiby+WVyZDAmlWwILiF6Uy8yPownQaYgLXruMHVrGBc7cfHsCDOCd4thn0kQAAAsL3UqQAQuUk/EWyhGqp6BgPnYCuPWbtIpcgYELCEg8yEAiAVIMAQZMdG5BAwIG/wh041cxpLhAIQR2/BhypAKWBk429KDlib0GBg6IhFYQ54GYnjTKGxIAgM+dARQk8AlUldAzD5wAUGCRm1WqEmU+1QMggUGrVwumyjRuhFQFDJ6B5YYWY1EyW/VsW0t3bNG4g4AoZftVwYJMAAwExhvQzI+0VttJzGTAwAADhDk4kHiv3+IAORFAbjGZgJsBIAGAPKCZQGRWmWENOKCTAOvSpldMPuAKAWuLrHGCPp3F9anVOkPmpn2A9xmQBE79bH2gAWvHsVNMDpl8ucTmP5Nvlo78enbXziVCN05husXG4rFb3M2duvjrzt07Lo6ic+v32N2Dp2/Cgc7n1jn33f9oBDRAXlQIjCaga7a11thtAxzoAGwghbSgRRhGeMKE98F3G4YYkvdDgxiSONqA0ZlVT4PUGUBiPTDGeNoPMDYYnIutxagjYTTGaGNjmhnAQEEF6QgAEOQ4oJSONpLW2F586diAgZJBmUCM2D1ngJVsxTgllazQhaWAt9GVAAMwfgkmHHQpACNprJUJVlv1qLlmFmsVWc9wt0HZVmN23nlGWAwI9lFzgaoJaKIaKUlkoV+Cd4UDDUDKKCttpcUApXZOmqiaP8CRaVqcTmlEp0B8amA8SmpKKqip3rbqD6o6gU2rrpY6K6WynlpgoLZmMeqmsNL6k1GnDsBoqGe4WqjCrqcWSylowAYbkJG6mjoppY5VW5YPMe5WrafJ/frlD99GVWFI4qp6bqogUftuug7o1667u7KUIKz0dnjvp9Hqa+6q/WZoGr6+iueiuej64p/B2e6a6pQYksawteX5ezCqVOAE4mvzCuJfh45F/Cl66dEWcgX+6UcAAiYn2tiDcRplalQBoVgyvl/mFGfN52YhGoZHxpzozxAGfYaRERodqM/PAaDszWcMAOMpQWxrhY5NI3lGLTDP+JuGSTJLAhYYRAAAOw=="
 ]
 
-export function generateCounterImage(count: number) {
-    const countStr = count < 999999 ?
-        count.toString().padStart(6, '0').slice(0, 6)
-        : '999999';
-    const imageStrs = countStr.split('').map(digit => {
-        return counterImages[parseInt(digit)];
-    });
+export type generateCounterImageOptions = {
+    length: number,
+}
+
+const defaultOptions: generateCounterImageOptions = {
+    length: 6
+}
+
+export function generateCounterImage(count: number, generateOptions: generateCounterImageOptions = defaultOptions) {
+    const rawStr = count.toString().padStart(generateOptions.length, '0')
+    const countStr = rawStr.length > generateOptions.length ? '9'.repeat(generateOptions.length) : rawStr
+    const imageStrs = countStr.split('').map(digit => counterImages[parseInt(digit)]);
     return counterSVGTemplate(imageStrs);
 }
 
