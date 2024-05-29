@@ -31,19 +31,25 @@ You can also self-host `dist/index.js` along with your site, or use a CDN.
 import { generateCounterImage, fetchBusuanziCounter } from "moe-counter-busuanzi";
 // If you want to import it from CDN:
 // import { generateCounterImage, fetchBusuanziCounter } from 'https://cdn.jsdelivr.net/npm/moe-counter-busuanzi/+esm'
-
-// You can also import/use custom themes, which is just a string[]
-import { gelbooruImages } from "moe-counter-busuanzi/themes/gb.js";
+// Warning: if you want to use a CDN, please fix a version, or there may be breaking changes.
 
 const busuanziResult = await fetchBusuanziCounter();
-// simply generate the counter image
-// const counterSVGString = generateCounterImage(busuanziResult.page_pv);
-// or customize options
-const counterSVGString = generateCounterImage(busuanziResult.page_pv, {
-  length: 6, // The length of the counter, default is 6
-  theme: gelbooruImages // The theme of the counter, default is moebooruImages
-});
+const counterSVGString = generateCounterImage(
+  busuanziResult.page_pv,   // site_uv, page_pv, site_pv
+  6,                        // The length of the counter
+  true                      // use default theme
+);
 document.getElementById("counter")!.innerHTML = counterSVGString;
+
+// You can also import or customize themes
+// Check all themes in `themes` folder
+// import { moebooruEcchiImages } from 'moe-counter-busuanzi/dist/themes/mbh.js'
+// const counterSVGString = generateCounterImage(
+//   busuanziResult.page_pv,
+//   6,
+//   false,                 // don't use default theme
+//   moebooruEcchiImages    // custom theme
+// );
 </script>
 ```
 
@@ -54,11 +60,6 @@ type BusuanziResult = {
   site_uv: number;
   page_pv: number;
   site_pv: number;
-};
-
-type generateCounterImageOptions = {
-  length?: number;
-  theme?: string[];
 };
 ```
 

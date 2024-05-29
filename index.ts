@@ -4,21 +4,13 @@ import { moebooruImages } from './themes/mb.js';
 // https://github.com/journey-ad/Moe-counter
 const counterSVGTemplate = (imageStrs: string[]) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="270" height="100" version="1.1"><title>Moe Count</title><g>${imageStrs.map((str, i) => `<image x="${45 * i}" y="0" width="45" height="100" xlink:href="${str}"></image>`).join('')}</g></svg>`;
 
-export type generateCounterImageOptions = {
-    length?: number,
-    theme?: string[]
-}
-
-export function generateCounterImage(count: number, generateOptions?: generateCounterImageOptions) {
-    if (generateOptions === undefined) {
-        generateOptions = {};
+export function generateCounterImage(count: number, length: number, useDefaultTheme: boolean, theme?: string[]) {
+    if (useDefaultTheme) {
+        theme = moebooruImages;
     }
-    generateOptions.length = generateOptions.length || 6;
-    generateOptions.theme = generateOptions.theme || moebooruImages;
-
-    const rawStr = count.toString().padStart(generateOptions.length, '0')
-    const countStr = rawStr.length > generateOptions.length ? '9'.repeat(generateOptions.length) : rawStr
-    const imageStrs = countStr.split('').map(digit => generateOptions.theme![parseInt(digit)]);
+    const rawStr = count.toString().padStart(length, '0')
+    const countStr = rawStr.length > length ? '9'.repeat(length) : rawStr
+    const imageStrs = countStr.split('').map(digit => theme![parseInt(digit)]);
     return counterSVGTemplate(imageStrs);
 }
 
