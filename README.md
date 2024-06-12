@@ -54,6 +54,8 @@ const counterSVGString = generateCounterImage(
 );
 ```
 
+Notice that the default theme (about 10KB) will be tree-shaken if you are using rollup >= 4.18.0, otherwise you may want to host a modified version.
+
 ## Credits
 
 - [Moe-counter](https://github.com/journey-ad/Moe-counter)
